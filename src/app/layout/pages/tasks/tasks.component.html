@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-between align-items-center head-div mx-3">
+  <h1 class="m-0">Tapşırıqlar</h1>
+  <button nz-button nzType="default" class="new-btn" (click)="showModal()">
+    Yeni
+  </button>
+</div>
+<section class="m-3 task-list">
+  <nz-table #editRowTable nzBordered [nzData]="listOfData">
+    <tbody>
+      <tr *ngFor="let data of editRowTable.data" class="editable-row">
+        <td>
+          <div
+            class="editable-cell"
+            [hidden]="editId === data.id"
+            (click)="startEdit(data.id)"
+          >
+            {{ data.title }}
+          </div>
+          <input
+            [hidden]="editId !== data.id"
+            type="text"
+            nz-input
+            [(ngModel)]="data.title"
+            (blur)="stopEdit()"
+          />
+        </td>
+        <td>{{ data.description }}</td>
+        <td>{{ data.deadline }}</td>
+        <td>{{ data.status }}</td>
+        <td>
+          <span class="learn-more pointer" (click)="usersDetails(data.id)"
+            >Ətraflı</span
+          >
+          <nz-divider nzType="vertical"></nz-divider>
+          <i
+            nz-icon
+            class="pointer"
+            (click)="showConfirm(data.id)"
+            nzType="delete"
+            nzTheme="outline"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</section>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Yeni"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzFooter]="null"
+>
+  <ng-container *nzModalContent>
+    <app-tasks-new
+      (onClose)="handleCancel()"
+      [tasks]="arrayObj"
+    ></app-tasks-new>
+  </ng-container>
+</nz-modal>

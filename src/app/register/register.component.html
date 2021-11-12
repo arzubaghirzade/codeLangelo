@@ -1,0 +1,137 @@
+<div class="home login">
+  <span class="bg-one"></span>
+  <header
+    class="logo d-flex align-items-center pointer px-lg-5 px-2 py-1"
+    routerLink="/"
+  >
+    <img src="../../assets/img/AngelA.png" alt="AngelA" />
+    <div class="ml-2 text-center">
+      <div class="text-uppercase font-15 font-lg-16">CodelAngelo</div>
+      <div class="text-uppercase font-8 font-lg-10 font text-muted">
+        Task management
+      </div>
+    </div>
+  </header>
+  <div
+    class="
+      col-4
+      d-flex
+      login-div
+      shadow
+      bg-white
+      justify-content-center
+      flex-column
+      align-self-around
+      p-5
+    "
+  >
+    <h2 class="text-center">Qeydiyyatdan keç</h2>
+    <form
+      nz-form
+      [nzLayout]="'inline'"
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit()"
+      class="d-flex flex-column"
+    >
+      <div *ngIf="!nextStep">
+        <nz-form-item class="my-2">
+          <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="profile">
+              <input
+                formControlName="name"
+                nz-input
+                placeholder="Company name"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="my-2">
+          <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="phone">
+              <input
+                type="phone"
+                formControlName="phone"
+                nz-input
+                placeholder="Phone"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="my-2">
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="environment">
+              <input
+                formControlName="address"
+                nz-input
+                type="text"
+                placeholder="address"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="my-2">
+          <nz-form-control>
+            <button
+              nz-button
+              class="submit"
+              (click)="nextRegisterStep()"
+              [disabled]="
+                registerForm.controls['name' || 'phone' || 'address']
+                  .invalid
+              "
+            >
+              Next
+            </button>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+
+      <div *ngIf="nextStep">
+        <nz-form-item class="my-2">
+          <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="user">
+              <input
+                formControlName="username"
+                nz-input
+                placeholder="Username"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="my-2">
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input
+                formControlName="password"
+                nz-input
+                type="password"
+                placeholder="Password"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="my-2">
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="mail">
+              <input
+                formControlName="email"
+                nz-input
+                type="email"
+                placeholder="email"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="my-2">
+          <nz-form-control>
+            <button nz-button class="submit" [disabled]="!registerForm.valid">
+              Sign up
+            </button>
+            <span class="mx-3">Or</span>
+            <button nz-button routerLink="['']">Login</button>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </form>
+  </div>
+</div>

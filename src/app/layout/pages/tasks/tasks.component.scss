@@ -1,0 +1,31 @@
+.circular-img {
+  margin: 0.5rem auto !important;
+}
+.circular-img img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.task-list {
+  ::ng-deep.ant-list-item-meta-title {
+    min-width: 100px;
+  }
+  ::ng-deep.ant-table-tbody > tr > td {
+    border: none !important;
+    border-bottom: 1rem transparent !important;
+  }
+  ::ng-deep.ant-table {
+    background: transparent !important;
+  }
+  ::ng-deep.ant-table table { 
+      border-collapse: separate !important;
+      border-spacing: 0 2rem !important;
+      background: transparent !important;
+  }
+  ::ng-deep.ant-table-tbody > tr {
+    background: #d2c0da !important;
+  }
+}
+
+@import "../../layout.component.scss";

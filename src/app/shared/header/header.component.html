@@ -1,0 +1,39 @@
+<header class="d-flex align-items-center bg-white">
+  <div class="container-fluid px-5 py-2 shadow">
+    <div class="d-flex w-100 align-items-center justify-content-between">
+      <div class="logo d-flex align-items-center pointer" routerLink="/home">
+        <img src="../../../assets/img/AngelA.png" alt="AngelA" />
+        <div class="ms-2 text-center">
+          <div class="text-uppercase font-15 font-lg-16">CodelAngelo</div>
+          <div class="text-uppercase font-8 font-lg-10 font text-muted">
+            Task managment
+          </div>
+        </div>
+      </div>
+      <ng-container>
+        <nz-avatar
+          nz-button
+          nz-dropdown
+          [nzDropdownMenu]="menu"
+          [nzPlacement]="listOfPosition"
+          [nzShape]="'square'"
+          [nzSize]="'large'"
+          class="logout-avatar pointer"
+          nzIcon="user"
+        ></nz-avatar>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu class="user-menu px-3">
+            <li nz-menu-item>
+              <i nz-icon [nzType]="'setting'" [nzTheme]="'outline'"></i>
+              <span class="mt-2">Settings</span>
+            </li>
+            <li nz-menu-item (click)="logOut()">
+              <i nz-icon [nzType]="'logout'" [nzTheme]="'outline'"></i>
+              <span class="mt-2">Çıxış</span>
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </ng-container>
+    </div>
+  </div>
+</header>

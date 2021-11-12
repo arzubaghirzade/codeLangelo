@@ -1,0 +1,9 @@
+.circular-img {
+    margin: 0.5rem auto !important;
+    }
+    .circular-img img {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 8px;
+        object-fit: cover;
+      }

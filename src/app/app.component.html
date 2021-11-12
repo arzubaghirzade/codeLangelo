@@ -1,0 +1,7 @@
+
+<ng-container>
+  <div class="main-bg">
+      <router-outlet></router-outlet>
+       <app-footer *ngIf="router.url.includes('home')"></app-footer>
+  </div>
+</ng-container>

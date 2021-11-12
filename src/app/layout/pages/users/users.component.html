@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-between align-items-center head-div mx-3">
+  <h1 class="m-0">İstifadəçilər</h1>
+  <button nz-button nzType="default" class="new-btn" (click)="showModal()">
+    Yeni
+  </button>
+</div>
+<section class="m-3">
+  <nz-table #basicTable [nzData]="usersArray">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Default password</th>
+        <th>Əməliyyatlar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of usersArray; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ data.username }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.password }}</td>
+        <td>
+          <span class="learn-more pointer" (click)="usersDetails(data.id)"
+            >Ətraflı</span
+          >
+          <nz-divider nzType="vertical"></nz-divider>
+          <i
+            nz-icon
+            class="pointer"
+            (click)="showConfirm(data.id)"
+            nzType="delete"
+            nzTheme="outline"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</section>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Yeni"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzFooter]="null"
+>
+  <ng-container *nzModalContent>
+    <app-users-new
+      (onClose)="handleCancel()"
+      [users]="arrayObj"
+    ></app-users-new>
+  </ng-container>
+</nz-modal>

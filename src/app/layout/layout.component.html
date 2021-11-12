@@ -1,0 +1,22 @@
+<section class="vh-100 layout-section">
+  <nz-layout>
+    <nz-header><app-header></app-header></nz-header>
+    <div class="d-flex layout">
+      <nz-sider class="pt-5 mt-3">
+        <ul nz-menu nzMode="inline">
+          <li routerLink="tasks" nz-menu-item nzTitle="Tapşırıqlar">
+            Tapşırıqlar
+          </li>
+          <nz-divider class="mx-3"></nz-divider>
+          <li *ngIf="isAdmin" routerLink="users" nz-menu-item nzTitle="İstifadəçilər">
+            İstifadəçilər
+          </li>
+          <nz-divider class="mx-3"></nz-divider>
+        </ul>
+      </nz-sider>
+      <nz-content class="p-3 mt-3">
+        <router-outlet></router-outlet>
+      </nz-content>
+    </div>
+  </nz-layout>
+</section>

@@ -1,0 +1,49 @@
+<section class="home">
+  <header class="d-flex align-items-center">
+    <div class="container-fluid px-2 px-lg-5">
+      <div class="d-flex w-100 align-items-center justify-content-between">
+        <div class="logo d-flex align-items-center pointer" routerLink="/home">
+          <img src="../../../assets/img/AngelA.png" alt="Angela" />
+          <div class="ms-2 text-center">
+            <div class="text-uppercase font-15 font-lg-16">CodelAngelo</div>
+            <div class="text-uppercase font-8 font-lg-10 font text-muted">
+              task managment
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="justify-content-around align-items-center home-content">
+    <nz-card
+      [routerLink]="['/layout/tasks']"
+      nzHoverable
+      [nzCover]="coverTemplate1"
+      class="col-12 col-sm-12 col-md-4 col-lg-4 shadow"
+    >
+      <nz-card-meta
+        nzTitle="Tapşırıqlar"
+        nzDescription="Şirkətin ümümu tapşırıq siyahısı"
+      ></nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate1>
+      <img alt="example" src="../../assets/img/task-list.jpg" />
+    </ng-template>
+    <ng-container *ngIf="isAdmin">
+ <nz-card
+      [routerLink]="['/layout/users']"
+      nzHoverable
+      [nzCover]="coverTemplate2"
+      class="col-12 col-sm-12 col-md-4 col-lg-4 shadow"
+    >
+      <nz-card-meta
+        nzTitle="İstifadəçilər"
+        nzDescription="Hamımız"
+      ></nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate2>
+      <img alt="example" src="../../assets/img/users.jpg" />
+    </ng-template>
+    </ng-container>
+  </main>
+</section>

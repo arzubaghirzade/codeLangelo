@@ -1,0 +1,66 @@
+body {
+  overflow: hidden !important;
+}
+.home {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  header {
+    position: unset !important;
+    img {
+      width: 50px;
+      height: 50px;
+      margin-right: 1rem;
+    }
+  }
+  .bg-one {
+    &:before {
+      content: "";
+      position: absolute;
+      position: absolute;
+      width: 800px;
+      height: 100vh;
+      top: 0%;
+      right: 0px;
+      right: 0px;
+      background-image: url("../assets/img/Union2.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  .home-content {
+    display: flex;
+    height: 80vh;
+    img {
+      width: 100%;
+      margin: 0 auto;
+      min-height: 300px;
+      object-fit: contain;
+    }
+    ::ng-deep.ant-card {
+      max-width: 25%;
+      min-height: 80%;
+      transition: all 0.2s ease-in-out;
+    }
+    ::ng-deep.ant-card:hover {
+      transform: scale(1.03);
+    }
+  }
+  .login-div {
+    border-radius: 4px;
+    margin: 5rem;
+  }
+}
+.login {
+  background: #fff !important;
+}
+.navbar-nav {
+  flex-direction: unset !important;
+}
+
+@media (max-width: 1000px) {
+  .home-content {
+    display: block !important;
+  }
+}
